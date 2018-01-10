@@ -25,7 +25,7 @@ APPFOLDER=$1_project
 APPFOLDERPATH=/$GROUPNAME/$APPFOLDER
 # prerequisite standard packages. If any of these are missing, 
 # script will attempt to install it. If installation fails, it will abort.
-LINUX_PREREQ=('git' 'build-essential' 'python-dev' 'nginx' 'postgresql' 'libpq-dev' 'python-pip3')
+LINUX_PREREQ=('git' 'build-essential' 'python-dev' 'nginx' 'postgresql' 'libpq-dev' 'python-pip')
 PYTHON_PREREQ=('virtualenv' 'supervisor')
 
 # check appname was supplied as argument
