@@ -25,7 +25,7 @@ APPFOLDER=$1_project
 APPFOLDERPATH=/$GROUPNAME/$APPFOLDER
 # prerequisite standard packages. If any of these are missing, 
 # script will attempt to install it. If installation fails, it will abort.
-LINUX_PREREQ=('git' 'build-essential' 'python-dev' 'nginx' 'postgresql' 'libpq-dev' 'python-pip')
+LINUX_PREREQ=('git' 'build-essential' 'python-dev' 'nginx' 'postgresql' 'libpq-dev' 'python-pip3')
 PYTHON_PREREQ=('virtualenv' 'supervisor')
 
 # check appname was supplied as argument
@@ -52,7 +52,7 @@ for pkg in "${LINUX_PREREQ[@]}"
 for ppkg in "${PYTHON_PREREQ[@]}"
     do
         echo "Installing Python package '$ppkg'..."
-        pip install $ppkg
+        pip3 install $ppkg
         if [ $? -ne 0 ]; then
             echo "Error installing python package '$ppkg'"
             exit 1 
@@ -99,16 +99,16 @@ pwd
 echo "Setting up python virtualenv..."
 virtualenv . || error_exit "Error installing virtual environment to app folder"
 source ./bin/activate
-# upgrade pip
-pip install --upgrade pip || error_exist "Error upgrading pip to the latest version"
-# install prerequisite python packages for a django app using pip
+# upgrade pip3
+pip3 install --upgrade pip2 || error_exist "Error upgrading pip to the latest version"
+# install prerequisite python packages for a django app using pip3
 echo "Installing base python packages for the app..."
 # Standard django packages which will be installed. If any of these fail, script will abort
-DJANGO_PKGS=('django-1.11' 'psycopg2' 'gunicorn' 'setproctitle')
+DJANGO_PKGS=('django' 'psycopg2' 'gunicorn' 'setproctitle')
 for dpkg in "${DJANGO_PKGS[@]}"
     do
         echo "Installing $dpkg..."
-        pip install $dpkg || error_exit "Error installing $dpkg"
+        pip3 install $dpkg || error_exit "Error installing $dpkg"
     done
 # create the default folders where we store django app's resources
 echo "Creating static file folders..."
