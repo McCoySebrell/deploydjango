@@ -105,7 +105,7 @@ pip install --upgrade pip || error_exist "Error upgrading pip to the latest vers
 # install prerequisite python packages for a django app using pip
 echo "Installing base python packages for the app..."
 # Standard django packages which will be installed. If any of these fail, script will abort
-DJANGO_PKGS=('django' 'psycopg2' 'gunicorn' 'setproctitle')
+DJANGO_PKGS=('django-1.11' 'psycopg2' 'gunicorn' 'setproctitle')
 for dpkg in "${DJANGO_PKGS[@]}"
     do
         echo "Installing $dpkg..."
