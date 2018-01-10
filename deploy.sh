@@ -99,9 +99,9 @@ pwd
 echo "Setting up python virtualenv..."
 virtualenv . || error_exit "Error installing virtual environment to app folder"
 source ./bin/activate
-# upgrade pip3
+# upgrade pip
 pip install --upgrade pip || error_exist "Error upgrading pip to the latest version"
-# install prerequisite python packages for a django app using pip3
+# install prerequisite python packages for a django app using pip
 echo "Installing base python packages for the app..."
 # Standard django packages which will be installed. If any of these fail, script will abort
 DJANGO_PKGS=('django==1.11.9' 'psycopg2' 'gunicorn' 'setproctitle')
